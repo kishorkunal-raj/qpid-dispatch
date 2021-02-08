@@ -124,6 +124,9 @@ jobs:
   - name: "qdrouterd:Debug"
     os: linux
     arch: ppc64le
+    before_install:
+    - npm -v
+    - sudo npm cache clean
     env:
     - PATH="/usr/bin:$PATH" PROTON_VERSION=master BUILD_TYPE=Debug
     - DISPATCH_CMAKE_ARGS='-DRUNTIME_CHECK=asan'
